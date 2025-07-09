@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+
+{% block title %}Performance Dashboard{% endblock %}
+
+{% block extra_css %}
+<style>
+    .gauge-container {
+        height: 250px;
+    }
+    .performance-card {
+        background-color: #2c3e50;
+        border-radius: 8px;
+        padding: 20px;
+        margin-bottom: 20px;
+        text-align: center;
+        color: white;
+    }
+    .performance-card .value {
+        font-size: 2rem;
+        font-weight: bold;
+    }
+    .performance-card .label {
+        font-size: 1rem;
+        color: #bdc3c7;
+    }
+    .status-ok {
+        color: #2ecc71; /* Green */
+    }
+    .status-warn {
+        color: #e67e22; /* Orange */
+    }
+    .status-error {
+        color: #e74c3c; /* Red */
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mb-4">Performance Dashboard</h1>
+
+    <div class="row">
+        <!-- System Gauges -->
+        <div class="col-md-6">
+            <div class="performance-card">
+                <div id="cpu-gauge" class="gauge-container"></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="performance-card">
+                <div id="memory-gauge" class="gauge-container"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <!-- Key Performance Indicators -->
+        <div class="col-md-3">
+            <div class="performance-card">
+                <div id="tick-buffer-size" class="value">--</div>
+                <div class="label">Legacy Tick Buffer Size</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="performance-card">
+                <div id="questdb-status" class="value">--</div>
+                <div class="label">QuestDB Status</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="performance-card">
+                <div id="ticks-processed" class="value">--</div>
+                <div class="label">Ticks Processed</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="performance-card">
+                <div id="avg-latency" class="value">--</div>
+                <div class="label">Avg. Processing Latency (ms)</div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="performance-card">
+                <div id="process-memory-mb" class="value">--</div>
+                <div class="label">Process Memory (MB)</div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Gauge Layout
+    const gaugeLayout = (title) => ({
+        width: 400,
+        height: 250,
+        margin: { t: 20, b: 40, l: 30, r: 30 },
+        paper_bgcolor: "rgba(0,0,0,0)",
+        font: { color: "white", family: "Arial" },
+        title: { text: title, font: { size: 20 } }
+    });
+
+    // Initialize Gauges
+    Plotly.newPlot('cpu-gauge', [{
+        type: "indicator",
+        mode: "gauge+number",
+        value: 0,
+        gauge: {
+            axis: { range: [0, 100], tickwidth: 1, tickcolor: "white" },
+            bar: { color: "#3498db" },
+            bgcolor: "white",
+            borderwidth: 2,
+            bordercolor: "#34495e",
+            steps: [
+                { range: [0, 50], color: "#2ecc71" },
+                { range: [50, 80], color: "#f1c40f" },
+                { range: [80, 100], color: "#e74c3c" }
+            ],
+            threshold: {
+                line: { color: "red", width: 4 },
+                thickness: 0.75,
+                value: 90
+            }
+        }
+    }], gaugeLayout('CPU Usage (%)'));
+
+    Plotly.newPlot('memory-gauge', [{
+        type: "indicator",
+        mode: "gauge+number",
+        value: 0,
+        gauge: {
+            axis: { range: [0, 100], tickwidth: 1, tickcolor: "white" },
+            bar: { color: "#9b59b6" },
+            steps: [
+                { range: [0, 50], color: "#2ecc71" },
+                { range: [50, 80], color: "#f1c40f" },
+                { range: [80, 100], color: "#e74c3c" }
+            ]
+        }
+    }], gaugeLayout('Memory Usage (%)'));
+
+    // Fetch and update data
+    async function updatePerformanceData() {
+        try {
+            const response = await fetch('/performance');
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+
+            // Update Gauges
+            if (data.system && data.system.cpu_percent !== undefined) {
+                Plotly.update('cpu-gauge', { value: data.system.cpu_percent });
+            }
+            if (data.system && data.system.memory_percent !== undefined) {
+                Plotly.update('memory-gauge', { value: data.system.memory_percent });
+            }
+
+            // Update Cards
+            document.getElementById('tick-buffer-size').textContent = data.legacy_tick_buffer_size !== undefined ? data.legacy_tick_buffer_size : '--';
+            
+            const questDbStatusEl = document.getElementById('questdb-status');
+            if (data.questdb_available !== undefined) {
+                questDbStatusEl.textContent = data.questdb_available ? 'Online' : 'Offline';
+                questDbStatusEl.className = 'value ' + (data.questdb_available ? 'status-ok' : 'status-error');
+            } else {
+                questDbStatusEl.textContent = 'N/A';
+            }
+            
+            document.getElementById('ticks-processed').textContent = data.ticks_processed || '--';
+            document.getElementById('avg-latency').textContent = (data.avg_latency_ms !== undefined && data.avg_latency_ms !== null) ? data.avg_latency_ms.toFixed(3) : '--';
+            document.getElementById('process-memory-mb').textContent = (data.system && data.system.process_memory_mb !== undefined) ? data.system.process_memory_mb.toFixed(2) : '--';
+
+        } catch (error) {
+            console.error("Error fetching performance data:", error);
+            // You could display an error message on the page here
+        }
+    }
+
+    // Initial call and set interval
+    updatePerformanceData();
+    setInterval(updatePerformanceData, 3000); // Update every 3 seconds
+});
+</script>
+{% endblock %}

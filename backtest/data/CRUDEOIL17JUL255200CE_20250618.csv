@@ -1,0 +1,3 @@
+timestamp,open,high,low,close,volume,openInterest,changeinOpenInterest,strike,option_type
+2025-06-18 09:55:00+05:30,1218.0,1218.0,1218.0,1218.0,0,0,0,5200.0,CE
+2025-06-19 10:25:00+05:30,1215.6,1215.6,1215.6,1215.6,0,0,0,5200.0,CE

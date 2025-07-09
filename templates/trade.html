@@ -1,0 +1,106 @@
+{% extends "base.html" %}
+
+{% block title %}Trade{% endblock %}
+
+{% block content %}
+<!-- Trade Page Content -->
+<div class="row">
+    <!-- Order Form -->
+    <div class="col-md-4">
+        <div class="info-card">
+            <div class="info-label"><i class="fa-solid fa-paper-plane"></i> Place Order</div>
+            <form id="order-form">
+                <div class="mb-2">
+                    <label class="form-label">Instrument</label>
+                    <select class="form-select form-select-sm" id="order-instrument">
+                        <option value="fut">CRUDE OIL FUT</option>
+                        <option value="ce">CRUDE OIL CE</option>
+                        <option value="pe">CRUDE OIL PE</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Transaction Type</label>
+                    <div class="btn-group w-100" role="group">
+                        <input type="radio" class="btn-check" name="transaction" id="btn-buy" value="BUY" checked>
+                        <label class="btn btn-outline-success btn-sm" for="btn-buy">BUY</label>
+                        <input type="radio" class="btn-check" name="transaction" id="btn-sell" value="SELL">
+                        <label class="btn btn-outline-danger btn-sm" for="btn-sell">SELL</label>
+                    </div>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Order Type</label>
+                    <select class="form-select form-select-sm" id="order-type">
+                        <option value="MARKET">MARKET</option>
+                        <option value="LIMIT">LIMIT</option>
+                        <option value="SL">STOP LOSS</option>
+                        <option value="SL-M">SL-MARKET</option>
+                    </select>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Quantity (Lots)</label>
+                    <input type="number" class="form-control form-control-sm" id="order-qty" value="1" min="1">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Price</label>
+                    <input type="number" class="form-control form-control-sm" id="order-price" step="0.05">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Trigger Price</label>
+                    <input type="number" class="form-control form-control-sm" id="trigger-price" step="0.05">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Positions & Orders -->
+    <div class="col-md-8">
+        <div class="info-card mb-3">
+            <div class="info-label"><i class="fa-solid fa-briefcase"></i> Open Positions</div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Symbol</th>
+                            <th>Type</th>
+                            <th>Qty</th>
+                            <th>Avg</th>
+                            <th>LTP</th>
+                            <th>P&L</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="positions-table">
+                        <!-- Positions will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-label"><i class="fa-solid fa-list-check"></i> Order History</div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Symbol</th>
+                            <th>Type</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="orders-table">
+                        <!-- Orders will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/trade.js') }}"></script>
+{% endblock %}

@@ -1,0 +1,2 @@
+Reading log configuration from D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\conf\log.conf
+2025-06-27T05:07:20.418529Z A http-min-server listening on 0.0.0.0:9003 [fd=8229157339362 backlog=64]

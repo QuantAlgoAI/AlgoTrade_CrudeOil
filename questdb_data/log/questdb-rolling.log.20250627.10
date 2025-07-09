@@ -1,0 +1,179 @@
+2025-06-27T04:18:27.721128Z A server-main QuestDB 8.3.3. Copyright (C) 2014-2025, all rights reserved.
+2025-06-27T04:18:27.722978Z A server-main windows-x86-64 [SSE4.1,7, 64 bits, 4 processors]
+2025-06-27T04:18:27.751221Z I server-main Web Console is up to date
+2025-06-27T04:18:27.773814Z A server-main Server config: ..\..\..\questdb_data\conf\server.conf
+2025-06-27T04:18:27.932709Z I i.q.c.t.t.InputFormatConfiguration loading input format config [resource=/text_loader.json]
+2025-06-27T04:18:28.000060Z I server-main changing logger timezone [from=`UTC`, to=`Z`]
+2025-06-27T04:18:28.000243Z A server-main Config:
+2025-06-27T04:18:28.000280Z A server-main  - http.enabled : true
+2025-06-27T04:18:28.000349Z A server-main  - tcp.enabled  : true
+2025-06-27T04:18:28.000380Z A server-main  - pg.enabled   : true
+2025-06-27T04:18:28.000409Z A server-main  - attach partition suffix: .attachable
+2025-06-27T04:18:28.000449Z A server-main  - open database [b4d5255c-e41f-a517-405e-b603f6b35c3d]
+2025-06-27T04:18:28.002536Z A server-main  - db root: [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db, magic=0x2b, fs=NTFS] -> SUPPORTED
+2025-06-27T04:18:28.002756Z A server-main  - backup root: NOT SET
+2025-06-27T04:18:28.002880Z I server-main  - .checkpoint root: [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\.checkpoint] -> NOT FOUND
+2025-06-27T04:18:28.003044Z I server-main  - snapshot root: [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\snapshot] -> NOT FOUND
+2025-06-27T04:18:28.004656Z A server-main  - sql copy input root: [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\import, magic=0x2b, fs=NTFS] -> SUPPORTED
+2025-06-27T04:18:28.004858Z I server-main  - sql copy input worker root: [path=D:\Backup\CrudeOil002\production_ready\questdb_data\tmp] -> NOT FOUND
+2025-06-27T04:18:28.009941Z A server-main  - SQL JIT compiler mode: on
+2025-06-27T04:18:28.010022Z A server-main  - configured ram.usage.limit.bytes: 0 (no limit)
+2025-06-27T04:18:28.010061Z A server-main  - configured ram.usage.limit.percent: 90
+2025-06-27T04:18:28.010108Z A server-main  - system RAM: 11.9 GiB
+2025-06-27T04:18:28.011117Z A server-main  - resolved RAM usage limit: 10.7 GiB
+2025-06-27T04:18:28.016675Z A server-main Metrics are disabled, health check endpoint will not consider unhandled errors
+2025-06-27T04:18:28.049264Z A i.q.c.CairoEngine loading functions from io.questdb
+2025-06-27T04:18:28.948653Z A i.q.c.CairoEngine loaded 825 functions
+2025-06-27T04:18:28.949579Z I i.q.g.FunctionFactoryCache loading functions [test=false]
+2025-06-27T04:18:29.155388Z I i.q.c.m.EngineMigration upgrading database [version=427]
+2025-06-27T04:18:29.159267Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.column_versions_purge_log, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.159457Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.column_versions_purge_log, toVersion=427]
+2025-06-27T04:18:29.163403Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.telemetry_mat_view, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.163505Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.telemetry_mat_view, toVersion=427]
+2025-06-27T04:18:29.164480Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.telemetry_wal, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.164537Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.telemetry_wal, toVersion=427]
+2025-06-27T04:18:29.165545Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.text_import_log, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.165598Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\sys.text_import_log, toVersion=427]
+2025-06-27T04:18:29.166615Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\telemetry, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.166679Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\telemetry, toVersion=427]
+2025-06-27T04:18:29.220476Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\telemetry_config, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.220570Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\telemetry_config, toVersion=427]
+2025-06-27T04:18:29.222130Z I i.q.c.m.EngineMigration upgrading [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\_query_trace, fromVersion=426, toVersion=427]
+2025-06-27T04:18:29.222240Z I i.q.c.m.EngineMigration upgrading table [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\_query_trace, toVersion=427]
+2025-06-27T04:18:29.223000Z I i.q.c.m.EngineMigration upgraded tables to 427
+2025-06-27T04:18:29.244993Z I i.q.c.TableNameRegistryStore reloading tables file [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\tables.d.0, threadId=1]
+2025-06-27T04:18:29.286347Z I i.q.c.TableNameRegistryStore reloading tables file [path=D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\db\tables.d.0, threadId=1]
+2025-06-27T04:18:29.306351Z I i.q.c.p.WriterPool open [table=`_query_trace`, thread=1]
+2025-06-27T04:18:29.337774Z I i.q.c.TableWriter open '_query_trace'
+2025-06-27T04:18:29.642751Z I i.q.g.e.QueryProgress exe [id=0, sql=`CREATE TABLE IF NOT EXISTS "sys.column_versions_purge_log" (ts timestamp, table_name symbol, column_name symbol, table_id int, truncate_version long, columnType int, table_partition_by int, updated_txn long, column_version long, partition_timestamp timestamp, partition_name_txn long,completed timestamp) timestamp(ts) partition by MONTH BYPASS WAL`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:29.643089Z I i.q.g.e.QueryProgress fin [id=0, sql=`CREATE TABLE IF NOT EXISTS "sys.column_versions_purge_log" (ts timestamp, table_name symbol, column_name symbol, table_id int, truncate_version long, columnType int, table_partition_by int, updated_txn long, column_version long, partition_timestamp timestamp, partition_name_txn long,completed timestamp) timestamp(ts) partition by MONTH BYPASS WAL`, principal=admin, cache=false, jit=true, time=-897320917652820]
+2025-06-27T04:18:29.643536Z I i.q.c.p.WriterPool open [table=`sys.column_versions_purge_log`, thread=1]
+2025-06-27T04:18:29.644101Z I i.q.c.TableWriter open 'sys.column_versions_purge_log'
+2025-06-27T04:18:29.851986Z I i.q.g.e.QueryProgress exe [id=1, sql=`SELECT * FROM "sys.column_versions_purge_log" WHERE completed = null`, principal=admin, cache=false, jit=true]
+2025-06-27T04:18:29.852740Z I i.q.g.e.QueryProgress fin [id=1, sql=`SELECT * FROM "sys.column_versions_purge_log" WHERE completed = null`, principal=admin, cache=false, jit=true, time=755400]
+2025-06-27T04:18:29.933831Z I i.q.g.e.QueryProgress exe [id=2, sql=`CREATE TABLE IF NOT EXISTS "sys.text_import_log" (ts timestamp, id string, table_name symbol, file symbol, phase symbol, status symbol, message string,rows_handled long,rows_imported long,errors long) timestamp(ts) partition by DAY BYPASS WAL`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:29.934076Z I i.q.g.e.QueryProgress fin [id=2, sql=`CREATE TABLE IF NOT EXISTS "sys.text_import_log" (ts timestamp, id string, table_name symbol, file symbol, phase symbol, status symbol, message string,rows_handled long,rows_imported long,errors long) timestamp(ts) partition by DAY BYPASS WAL`, principal=admin, cache=false, jit=true, time=-897320626953990]
+2025-06-27T04:18:29.934216Z I i.q.c.p.WriterPool open [table=`sys.text_import_log`, thread=1]
+2025-06-27T04:18:29.934320Z I i.q.c.TableWriter open 'sys.text_import_log'
+2025-06-27T04:18:30.229173Z I i.q.c.p.WriterPool open [table=`telemetry`, thread=1]
+2025-06-27T04:18:30.229364Z I i.q.c.TableWriter open 'telemetry'
+2025-06-27T04:18:30.285305Z I i.q.c.TableWriter switched partition [path=\telemetry\2025-06-27.91]
+2025-06-27T04:18:30.313189Z I i.q.c.p.WriterPool open [table=`sys.telemetry_wal`, thread=1]
+2025-06-27T04:18:30.313298Z I i.q.c.TableWriter open 'sys.telemetry_wal'
+2025-06-27T04:18:30.344416Z I i.q.c.p.WriterPool open [table=`sys.telemetry_mat_view`, thread=1]
+2025-06-27T04:18:30.344557Z I i.q.c.TableWriter open 'sys.telemetry_mat_view'
+2025-06-27T04:18:30.376204Z I i.q.c.p.WriterPool open [table=`telemetry_config`, thread=1]
+2025-06-27T04:18:30.376325Z I i.q.c.TableWriter open 'telemetry_config'
+2025-06-27T04:18:30.697688Z I i.q.c.TableWriter switched partition [path=\telemetry_config\default]
+2025-06-27T04:18:30.719900Z I i.q.g.e.QueryProgress exe [id=7, sql=`telemetry_config LIMIT -1`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:30.722764Z A i.q.TelemetryConfigLogger instance [id=0x063880b18958650002f3cc07e8eb70, enabled=true]
+2025-06-27T04:18:30.722950Z I i.q.g.e.QueryProgress fin [id=7, sql=`telemetry_config LIMIT -1`, principal=admin, cache=false, jit=true, time=3051600]
+2025-06-27T04:18:30.727666Z I i.q.WorkerPoolManager new DEDICATED pool [name=mat-view-refresh, requester=mat-view-refresh, workers=2, priority=5]
+2025-06-27T04:18:30.743435Z I i.q.WorkerPoolManager new DEDICATED pool [name=wal-apply, requester=wal-apply, workers=2, priority=5]
+2025-06-27T04:18:30.751748Z I i.q.WorkerPoolManager using SHARED pool [requester=http, workers=4]
+2025-06-27T04:18:30.768326Z A http-server listening on 0.0.0.0:9000 [fd=7730941133015 backlog=256]
+2025-06-27T04:18:30.807063Z I i.q.WorkerPoolManager new DEDICATED pool [name=minhttp, requester=min-http, workers=1, priority=8]
+2025-06-27T04:18:30.809691Z I i.q.WorkerPoolManager using SHARED pool [requester=pg-wire, workers=4]
+2025-06-27T04:18:30.846696Z A pg-server listening on 0.0.0.0:8812 [fd=8160437862617 backlog=64]
+2025-06-27T04:18:30.848555Z I i.q.WorkerPoolManager using SHARED pool [requester=line-tcp-io, workers=4]
+2025-06-27T04:18:30.848602Z I i.q.WorkerPoolManager using SHARED pool [requester=line-tcp-writer, workers=4]
+2025-06-27T04:18:30.850506Z A tcp-line-server listening on 0.0.0.0:9009 [fd=8177617731802 backlog=256]
+2025-06-27T04:18:30.994592Z A server-main server is ready to be started
+2025-06-27T04:18:30.995741Z I i.q.c.MetadataCache metadata hydration started [tables=7]
+2025-06-27T04:18:30.997502Z I server-main worker pool started [pool=shared]
+2025-06-27T04:18:30.997564Z I i.q.WorkerPoolManager started shared pool [name=shared, workers=4]
+2025-06-27T04:18:30.997855Z I server-main worker pool started [pool=mat-view-refresh]
+2025-06-27T04:18:30.997877Z I i.q.WorkerPoolManager started dedicated pool [name=mat-view-refresh, workers=2]
+2025-06-27T04:18:30.998158Z I server-main worker pool started [pool=wal-apply]
+2025-06-27T04:18:30.998181Z I i.q.WorkerPoolManager started dedicated pool [name=wal-apply, workers=2]
+2025-06-27T04:18:30.998325Z I server-main worker pool started [pool=minhttp]
+2025-06-27T04:18:30.998345Z I i.q.WorkerPoolManager started dedicated pool [name=minhttp, workers=1]
+2025-06-27T04:18:31.001499Z I server-main os scheduled worker started [name=minhttp_0]
+2025-06-27T04:18:31.007865Z I server-main os scheduled worker started [name=shared_0]
+2025-06-27T04:18:31.008189Z I server-main os scheduled worker started [name=shared_1]
+2025-06-27T04:18:31.008273Z I server-main os scheduled worker started [name=shared_2]
+2025-06-27T04:18:31.008500Z I server-main os scheduled worker started [name=shared_3]
+2025-06-27T04:18:31.008609Z I server-main os scheduled worker started [name=mat-view-refresh_0]
+2025-06-27T04:18:31.013287Z I server-main os scheduled worker started [name=mat-view-refresh_1]
+2025-06-27T04:18:31.020703Z I server-main os scheduled worker started [name=wal-apply_0]
+2025-06-27T04:18:31.023311Z I server-main os scheduled worker started [name=wal-apply_1]
+2025-06-27T04:18:31.074040Z I server-main 
+     ___                  _   ____  ____
+    / _ \ _   _  ___  ___| |_|  _ \| __ )
+   | | | | | | |/ _ \/ __| __| | | |  _ \
+   | |_| | |_| |  __/\__ \ |_| |_| | |_) |
+    \__\_\\__,_|\___||___/\__|____/|____/
+                        www.questdb.io
+
+    Web Console URL                 ILP Client Connection String
+
+    http://127.0.0.1:9000           http::addr=127.0.0.1:9000;
+    http://192.168.29.251:9000      http::addr=192.168.29.251:9000;
+    http://172.20.32.1:9000         http::addr=172.20.32.1:9000;
+
+QuestDB configuration files are in D:\Backup\CrudeOil002\production_ready\questdb_data\conf
+
+
+2025-06-27T04:18:31.149715Z A server-main enjoy
+2025-06-27T04:18:31.225342Z I i.q.c.MetadataCache metadata hydration completed [tables=7]
+2025-06-27T04:18:39.816717Z I http-server connected [ip=127.0.0.1, fd=9191230013666]
+2025-06-27T04:18:39.855705Z I i.q.c.h.p.StaticContentProcessor [9191230013666] incoming [url=/index.html]
+2025-06-27T04:18:39.857461Z I http-server connected [ip=127.0.0.1, fd=8246337208547]
+2025-06-27T04:18:39.885197Z I http-server connected [ip=127.0.0.1, fd=8263517077732]
+2025-06-27T04:18:39.885548Z I http-server connected [ip=127.0.0.1, fd=8211977470181]
+2025-06-27T04:18:39.887221Z I i.q.c.h.p.StaticContentProcessor [9191230013666] incoming [url=/vendor.5c3be.js]
+2025-06-27T04:18:39.888608Z I i.q.c.h.p.StaticContentProcessor [8246337208547] incoming [url=/qdb.714cb.js]
+2025-06-27T04:18:39.889589Z I i.q.c.h.p.StaticContentProcessor [8263517077732] incoming [url=/vendor.5c3be.css]
+2025-06-27T04:18:39.898025Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/qdb.714cb.css]
+2025-06-27T04:18:40.517815Z I i.q.c.h.p.StaticContentProcessor [8263517077732] incoming [url=/assets/favicon.svg]
+2025-06-27T04:18:40.531428Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/favicon.ico]
+2025-06-27T04:18:40.537173Z I i.q.c.h.p.StaticContentProcessor [8263517077732] incoming [url=/assets/console-configuration.json]
+2025-06-27T04:18:40.607618Z I i.q.g.e.QueryProgress exe [id=8, sql=`select build`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.616277Z I i.q.g.e.QueryProgress exe [id=9, sql=`telemetry_config limit -1`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.617695Z I i.q.g.e.QueryProgress fin [id=9, sql=`telemetry_config limit -1`, principal=admin, cache=false, jit=true, time=1422100]
+2025-06-27T04:18:40.617792Z I i.q.c.h.p.JsonQueryProcessorState [8211977470181] timings [compiler: 45122600, count: 0, execute: 48733700, q=`telemetry_config limit -1`]
+2025-06-27T04:18:40.617809Z I i.q.g.e.QueryProgress fin [id=8, sql=`select build`, principal=admin, cache=false, jit=true, time=10205400]
+2025-06-27T04:18:40.617869Z I i.q.c.h.p.JsonQueryProcessorState [8263517077732] timings [compiler: 34542200, count: 0, execute: 48548900, q=`select build`]
+2025-06-27T04:18:40.673260Z I http-server connected [ip=127.0.0.1, fd=9225589752038]
+2025-06-27T04:18:40.673624Z I http-server connected [ip=127.0.0.1, fd=9242769621223]
+2025-06-27T04:18:40.675638Z I i.q.g.e.QueryProgress exe [id=10, sql=`information_schema.questdb_columns()`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.678767Z I i.q.g.e.QueryProgress fin [id=10, sql=`information_schema.questdb_columns()`, principal=admin, cache=false, jit=true, time=3123700]
+2025-06-27T04:18:40.678860Z I i.q.c.h.p.JsonQueryProcessorState [9191230013666] timings [compiler: 1262200, count: 0, execute: 4646600, q=`information_schema.questdb_columns()`]
+2025-06-27T04:18:40.682948Z I i.q.g.e.QueryProgress exe [id=11, sql=`SELECT current_user`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.699311Z I i.q.g.e.QueryProgress fin [id=11, sql=`SELECT current_user`, principal=admin, cache=false, jit=true, time=516700]
+2025-06-27T04:18:40.705548Z I i.q.g.e.QueryProgress exe [id=12, sql=`tables();`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.706164Z I i.q.g.e.QueryProgress fin [id=12, sql=`tables();`, principal=admin, cache=false, jit=true, time=622200]
+2025-06-27T04:18:40.706248Z I i.q.c.h.p.JsonQueryProcessorState [8246337208547] timings [compiler: 3419000, count: 0, execute: 7354300, q=`tables();`]
+2025-06-27T04:18:40.707685Z I i.q.g.e.QueryProgress exe [id=13, sql=`(show parameters) where property_path ilike 'cairo.sql.copy.root'`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.716451Z I i.q.g.e.QueryProgress fin [id=13, sql=`(show parameters) where property_path ilike 'cairo.sql.copy.root'`, principal=admin, cache=false, jit=true, time=8756300]
+2025-06-27T04:18:40.716967Z I i.q.c.h.p.JsonQueryProcessorState [9225589752038] timings [compiler: 9170500, count: 0, execute: 18679600, q=`(show parameters) where property_path ilike 'cairo.sql.copy.root'`]
+2025-06-27T04:18:40.718962Z I i.q.c.h.p.StaticContentProcessor [9242769621223] incoming [url=/assets/vs/loader.js]
+2025-06-27T04:18:40.723546Z I i.q.c.h.p.StaticContentProcessor [9191230013666] incoming [url=/assets/upload.svg]
+2025-06-27T04:18:40.725562Z I i.q.g.e.QueryProgress exe [id=14, sql=`tables();`, principal=admin, cache=true, jit=false]
+2025-06-27T04:18:40.728294Z I i.q.g.e.QueryProgress fin [id=14, sql=`tables();`, principal=admin, cache=true, jit=true, time=2725100]
+2025-06-27T04:18:40.728387Z I i.q.c.h.p.JsonQueryProcessorState [8246337208547] timings [compiler: 0, count: 0, execute: 3373400, q=`tables();`]
+2025-06-27T04:18:40.733068Z I i.q.c.h.p.StaticContentProcessor [8263517077732] incoming [url=/assets/icon-file.svg]
+2025-06-27T04:18:40.733851Z I i.q.c.h.p.JsonQueryProcessorState [8211977470181] timings [compiler: 827800, count: 0, execute: 130811400, q=`SELECT current_user`]
+2025-06-27T04:18:40.735684Z I i.q.c.h.p.StaticContentProcessor [9242769621223] incoming [url=/573e9313e05d89f4acb5d005476c61bb.woff]
+2025-06-27T04:18:40.736561Z I i.q.c.h.p.StaticContentProcessor [9191230013666] incoming [url=/d0b483ce9717b92b4bf815d5d4db597a.woff]
+2025-06-27T04:18:40.816994Z I i.q.c.h.p.StaticContentProcessor [8246337208547] incoming [url=/7dafb1a4bab4938a38b2d68d9c4575a9.woff]
+2025-06-27T04:18:40.838451Z I i.q.g.e.QueryProgress exe [id=15, sql=`wal_tables()`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.841731Z I i.q.g.e.QueryProgress fin [id=15, sql=`wal_tables()`, principal=admin, cache=false, jit=true, time=3275400]
+2025-06-27T04:18:40.841813Z I i.q.c.h.p.JsonQueryProcessorState [8246337208547] timings [compiler: 5823900, count: 0, execute: 9343200, q=`wal_tables()`]
+2025-06-27T04:18:40.844262Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/create-table.svg]
+2025-06-27T04:18:40.855524Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/vs/editor/editor.main.js]
+2025-06-27T04:18:40.927996Z I i.q.g.e.QueryProgress exe [id=16, sql=`materialized_views()`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:40.928671Z I i.q.g.e.QueryProgress fin [id=16, sql=`materialized_views()`, principal=admin, cache=false, jit=true, time=5804500]
+2025-06-27T04:18:40.928727Z I i.q.c.h.p.JsonQueryProcessorState [8211977470181] timings [compiler: 15768700, count: 0, execute: 21920800, q=`materialized_views()`]
+2025-06-27T04:18:41.142889Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/vs/editor/editor.main.css]
+2025-06-27T04:18:41.154274Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/vs/editor/editor.main.nls.js]
+2025-06-27T04:18:41.539798Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/vs/base/worker/workerMain.js]
+2025-06-27T04:18:41.585651Z I i.q.c.h.p.StaticContentProcessor [8211977470181] incoming [url=/assets/vs/base/common/worker/simpleWorker.nls.js]
+2025-06-27T04:18:41.858041Z I i.q.g.e.QueryProgress exe [id=17, sql=`with tel as ( SELECT cast(created as long), event, origin FROM telemetry WHERE created > '2025-06-26T22:32:35.434Z' LIMIT -10000 ) SELECT cast(created as long), cast(1000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(ceil(sum(rowCount) / 1000.0) as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(2000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(count() as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(3000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(max(latency) / 1000.0 as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT * FROM tel`, principal=admin, cache=false, jit=false]
+2025-06-27T04:18:41.954895Z I i.q.g.e.QueryProgress fin [id=17, sql=`with tel as ( SELECT cast(created as long), event, origin FROM telemetry WHERE created > '2025-06-26T22:32:35.434Z' LIMIT -10000 ) SELECT cast(created as long), cast(1000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(ceil(sum(rowCount) / 1000.0) as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(2000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(count() as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(3000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(max(latency) / 1000.0 as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT * FROM tel`, principal=admin, cache=false, jit=true, time=96845600]
+2025-06-27T04:18:41.955068Z I i.q.c.h.p.JsonQueryProcessorState [8211977470181] timings [compiler: 74177500, count: 0, execute: 171465000, q=`with tel as ( SELECT cast(created as long), event, origin FROM telemetry WHERE created > '2025-06-26T22:32:35.434Z' LIMIT -10000 ) SELECT cast(created as long), cast(1000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(ceil(sum(rowCount) / 1000.0) as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(2000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(count() as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT cast(created as long), cast(3000 as short), cast(case when sm >= 0 then sm else 32767 end as short) FROM ( SELECT created, cast(max(latency) / 1000.0 as short) sm FROM sys.telemetry_wal WHERE created > '2025-06-26T22:32:35.434Z' and rowCount > 0 SAMPLE BY 1h align to calendar ) UNION ALL SELECT * FROM tel`]
+2025-06-27T04:19:00.058044Z I http-server connected [ip=127.0.0.1, fd=9603546874106]
+2025-06-27T04:19:00.059854Z I i.q.c.h.p.StaticContentProcessor [9603546874106] incoming [url=/]
+2025-06-27T04:19:05.069746Z I http-server disconnected [ip=127.0.0.1, fd=9603546874106, src=queue]
+2025-06-27T04:21:22.796058Z I http-server connected [ip=127.0.0.1, fd=9569187135739]
+2025-06-27T04:21:22.798430Z I i.q.c.h.p.StaticContentProcessor [9569187135739] incoming [url=/]

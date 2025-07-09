@@ -1,0 +1,16 @@
+{
+    "fast_ema_period": 5,
+    "slow_ema_period": 8,
+    "rsi_period": 8,
+    "atr_period": 6,
+    "vwap_period": 18,
+    "use_fast_ema": true,
+    "use_slow_ema": true,
+    "use_rsi": true,
+    "use_atr": true,
+    "use_vwap": true,
+    "rsi_oversold": 32,
+    "rsi_overbought": 79,
+    "volume_surge_factor": 1.0699867185812848,
+    "atr_volatility_factor": 0.0070373408758937165
+}

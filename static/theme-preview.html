@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Bootstrap Theme Preview</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <style>
+    :root {
+      --bs-primary: #0d6efd;
+      --bs-secondary: #6c757d;
+      --bs-success: #198754;
+      --bs-info: #0dcaf0;
+      --bs-warning: #ffc107;
+      --bs-danger: #dc3545;
+      --bs-light: #f8f9fa;
+      --bs-dark: #212529;
+
+      --bs-body-bg: #111;
+      --bs-body-color: #eee;
+      --bs-font-sans-serif: 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    body {
+      background-color: var(--bs-body-bg);
+      color: var(--bs-body-color);
+    }
+
+    .card {
+      background-color: #1e1e1e;
+      color: #fff;
+      border: 1px solid #333;
+      margin-bottom: 1rem;
+    }
+
+    .navbar {
+      background-color: #222;
+    }
+
+    /* Custom Colors */
+    .bg-indigo { background-color: #6610f2 !important; }
+    .bg-cyan { background-color: #0dcaf0 !important; }
+    .bg-teal { background-color: #20c997 !important; }
+    .bg-rose { background-color: #e11d48 !important; }
+    .bg-lime { background-color: #84cc16 !important; }
+    .bg-amber { background-color: #f59e0b !important; }
+    .bg-emerald { background-color: #10b981 !important; }
+    .bg-sky { background-color: #0ea5e9 !important; }
+    .bg-violet { background-color: #8b5cf6 !important; }
+    .bg-coral { background-color: #ff6f61 !important; }
+
+    .text-indigo { color: #6610f2 !important; }
+    .text-cyan { color: #0dcaf0 !important; }
+    .text-teal { color: #20c997 !important; }
+    .text-rose { color: #e11d48 !important; }
+    .text-lime { color: #84cc16 !important; }
+    .text-amber { color: #f59e0b !important; }
+    .text-emerald { color: #10b981 !important; }
+    .text-sky { color: #0ea5e9 !important; }
+    .text-violet { color: #8b5cf6 !important; }
+    .text-coral { color: #ff6f61 !important; }
+
+    .border-indigo { border-color: #6610f2 !important; }
+    .border-cyan { border-color: #0dcaf0 !important; }
+    .border-teal { border-color: #20c997 !important; }
+    .border-rose { border-color: #e11d48 !important; }
+    .border-lime { border-color: #84cc16 !important; }
+    .border-amber { border-color: #f59e0b !important; }
+    .border-emerald { border-color: #10b981 !important; }
+    .border-sky { border-color: #0ea5e9 !important; }
+    .border-violet { border-color: #8b5cf6 !important; }
+    .border-coral { border-color: #ff6f61 !important; }
+  </style>
+</head>
+<body>
+  <nav class="navbar navbar-dark mb-4">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Bootstrap Theme Colors</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row g-3">
+      <!-- Bootstrap standard colors -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-primary">
+          <h5 class="card-title text-primary">Primary</h5>
+          <p class="card-text">Used for main actions and highlights.</p>
+          <button class="btn btn-primary">Primary</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-secondary">
+          <h5 class="card-title text-secondary">Secondary</h5>
+          <p class="card-text">Subtle highlights, muted tones.</p>
+          <button class="btn btn-secondary">Secondary</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-success">
+          <h5 class="card-title text-success">Success</h5>
+          <p class="card-text">Used for success states or confirmations.</p>
+          <button class="btn btn-success">Success</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-info">
+          <h5 class="card-title text-info">Info</h5>
+          <p class="card-text">Informational highlights and neutral tones.</p>
+          <button class="btn btn-info text-dark">Info</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-warning">
+          <h5 class="card-title text-warning">Warning</h5>
+          <p class="card-text">Warnings or actions that require caution.</p>
+          <button class="btn btn-warning text-dark">Warning</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-danger">
+          <h5 class="card-title text-danger">Danger</h5>
+          <p class="card-text">Errors, destructive actions, alerts.</p>
+          <button class="btn btn-danger">Danger</button>
+        </div>
+      </div>
+
+      <!-- Custom theme colors -->
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-indigo">
+          <h5 class="card-title text-indigo">Indigo</h5>
+          <p class="card-text">Deep modern purple tone.</p>
+          <button class="btn text-white bg-indigo">Indigo</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-cyan">
+          <h5 class="card-title text-cyan">Cyan</h5>
+          <p class="card-text">Cool contrast for info blocks.</p>
+          <button class="btn text-dark bg-cyan">Cyan</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-teal">
+          <h5 class="card-title text-teal">Teal</h5>
+          <p class="card-text">Calm, medical, or analytics.</p>
+          <button class="btn text-white bg-teal">Teal</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-rose">
+          <h5 class="card-title text-rose">Rose</h5>
+          <p class="card-text">Friendly and vibrant tone.</p>
+          <button class="btn text-white bg-rose">Rose</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-lime">
+          <h5 class="card-title text-lime">Lime</h5>
+          <p class="card-text">Sharp and energetic accent.</p>
+          <button class="btn text-dark bg-lime">Lime</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-amber">
+          <h5 class="card-title text-amber">Amber</h5>
+          <p class="card-text">Golden caution tone.</p>
+          <button class="btn text-dark bg-amber">Amber</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-emerald">
+          <h5 class="card-title text-emerald">Emerald</h5>
+          <p class="card-text">Fresh & clean finance shade.</p>
+          <button class="btn text-white bg-emerald">Emerald</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-sky">
+          <h5 class="card-title text-sky">Sky</h5>
+          <p class="card-text">Bright & youthful hue.</p>
+          <button class="btn text-dark bg-sky">Sky</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-violet">
+          <h5 class="card-title text-violet">Violet</h5>
+          <p class="card-text">Trendy tech purple.</p>
+          <button class="btn text-white bg-violet">Violet</button>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-4">
+        <div class="card p-3 border-coral">
+          <h5 class="card-title text-coral">Coral</h5>
+          <p class="card-text">Vibrant warm attention tone.</p>
+          <button class="btn text-white bg-coral">Coral</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

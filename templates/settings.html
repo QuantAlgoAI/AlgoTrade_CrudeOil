@@ -1,0 +1,152 @@
+{% extends "base.html" %}
+
+{% block title %}Settings{% endblock %}
+
+{% block content %}
+<!-- Settings Page Content -->
+<!-- Dry-Run Toggle -->
+<div class="info-card mb-3">
+    <div class="info-label"><i class="fa-solid fa-flask"></i> Dry-Run Mode</div>
+    <div class="form-check form-switch">
+        <input class="form-check-input" type="checkbox" id="dry-run-toggle">
+        <label class="form-check-label" for="dry-run-toggle">Enable Dry-Run (no live orders)</label>
+    </div>
+</div>
+<div class="row">
+    <!-- Account Settings & Notifications -->
+    <div class="col-md-6">
+        <!-- Account Settings -->
+        <div class="info-card mb-3">
+            <div class="info-label"><i class="fa-solid fa-user-gear"></i> Account Settings</div>
+            <form id="account-settings">
+                <div class="mb-2">
+                    <label class="form-label">Risk Per Trade (%)</label>
+                    <input type="number" class="form-control form-control-sm" id="risk-per-trade" value="1" min="0.1" max="5" step="0.1">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Max Open Positions</label>
+                    <input type="number" class="form-control form-control-sm" id="max-positions" value="3" min="1">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Daily Loss Limit (%)</label>
+                    <input type="number" class="form-control form-control-sm" id="loss-limit" value="5" min="1">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Target Profit (%)</label>
+                    <input type="number" class="form-control form-control-sm" id="target-profit" value="10" min="1">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100">Save Account Settings</button>
+            </form>
+        </div>
+
+        <!-- Notifications -->
+        <div class="info-card">
+            <div class="info-label"><i class="fa-solid fa-bell"></i> Notifications</div>
+            <!-- Notification Types -->
+            <div class="mb-3">
+                <div class="info-sublabel mb-2">Notification Types</div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="notify-orders" checked>
+                    <label class="form-check-label" for="notify-orders">Order Notifications</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="notify-alerts" checked>
+                    <label class="form-check-label" for="notify-alerts">Price Alerts</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="notify-signals" checked>
+                    <label class="form-check-label" for="notify-signals">Strategy Signals</label>
+                </div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="notify-pnl" checked>
+                    <label class="form-check-label" for="notify-pnl">P&L Updates</label>
+                </div>
+            </div>
+
+            <!-- Telegram Settings -->
+            <div class="mb-3">
+                <div class="info-sublabel mb-2"><i class="fa-brands fa-telegram"></i> Telegram Notifications</div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="enable-telegram" checked>
+                    <label class="form-check-label" for="enable-telegram">Enable Telegram</label>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Bot Token</label>
+                    <input type="password" class="form-control form-control-sm" id="telegram-token" value="{{ telegram_token }}">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Chat ID</label>
+                    <input type="text" class="form-control form-control-sm" id="telegram-chat-id" value="{{ telegram_chat_id }}">
+                </div>
+                <button class="btn btn-outline-primary btn-sm" type="button" onclick="testTelegramNotification()"><i class="fa-solid fa-paper-plane"></i> Test Telegram</button>
+            </div>
+
+            <!-- Email Settings -->
+            <div class="mb-3">
+                <div class="info-sublabel mb-2"><i class="fa-solid fa-envelope"></i> Email Notifications</div>
+                <div class="form-check form-switch mb-2">
+                    <input class="form-check-input" type="checkbox" id="enable-email" checked>
+                    <label class="form-check-label" for="enable-email">Enable Email</label>
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Gmail Address</label>
+                    <input type="email" class="form-control form-control-sm" id="gmail-user" value="{{ gmail_user }}">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">App Password</label>
+                    <input type="password" class="form-control form-control-sm" id="gmail-pass">
+                </div>
+                <button class="btn btn-outline-primary btn-sm" type="button" onclick="testEmailNotification()"><i class="fa-solid fa-paper-plane"></i> Test Email</button>
+            </div>
+
+            <button class="btn btn-primary btn-sm w-100" onclick="saveNotificationSettings()">Save Notification Settings</button>
+        </div>
+    </div>
+
+    <!-- API & Data Management -->
+    <div class="col-md-6">
+        <!-- API Configuration -->
+        <div class="info-card mb-3">
+            <div class="info-label"><i class="fa-solid fa-key"></i> API Configuration</div>
+            <form id="api-settings">
+                <div class="mb-2">
+                    <label class="form-label">API Key</label>
+                    <input type="password" class="form-control form-control-sm" id="api-key">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Secret Key</label>
+                    <input type="password" class="form-control form-control-sm" id="secret-key">
+                </div>
+                <div class="mb-2">
+                    <label class="form-label">Client ID</label>
+                    <input type="text" class="form-control form-control-sm" id="client-id">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100">Update API Settings</button>
+            </form>
+        </div>
+
+        <!-- Data Management -->
+        <div class="info-card">
+            <div class="info-label"><i class="fa-solid fa-database"></i> Data Management</div>
+            <div class="mb-3">
+                <label class="form-label">Export Data</label>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary btn-sm" onclick="exportTrades()"><i class="fa-solid fa-file-export"></i> Export Trade History</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="exportPerformance()"><i class="fa-solid fa-chart-simple"></i> Export Performance Data</button>
+                </div>
+            </div>
+            <div>
+                <label class="form-label">Backup Settings</label>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-outline-primary btn-sm" onclick="backupSettings()"><i class="fa-solid fa-cloud-arrow-up"></i> Backup Settings</button>
+                    <button class="btn btn-outline-primary btn-sm" onclick="restoreSettings()"><i class="fa-solid fa-cloud-arrow-down"></i> Restore Settings</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/settings.js') }}"></script>
+{% endblock %}

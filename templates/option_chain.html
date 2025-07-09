@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block title %}Option Chain{% endblock %}
+
+{% block content %}
+<div class="info-card">
+    <div class="info-label"><i class="fa-solid fa-table"></i> CRUDEOIL Option Chain <span id="expiry-badge" class="badge bg-secondary ms-2"></span></div>
+    <div class="d-flex justify-content-between align-items-center small mt-1 mb-1">
+        <div id="refresh-status" class="text-muted"></div>
+        <div id="chain-stats" class="text-info fw-bold"></div>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-dark table-hover table-sm align-middle text-center" id="option-chain-table">
+            <thead>
+                <tr>
+                    
+                    <th rowspan="2">Strike</th>
+                    <th colspan="8" class="bg-success">CALL</th>
+                    <th colspan="8" class="bg-danger">PUT</th>
+                </tr>
+                <tr>
+                    <th>OI</th>
+                    <th>IV%</th>
+                    <th>LTP</th>
+                    <th>Vol</th>
+                    <th>Δ</th>
+                    <th>Γ</th>
+                    <th>Θ</th>
+                    <th>Vega</th>
+                    <th>OI</th>
+                    <th>IV%</th>
+                    <th>LTP</th>
+                    <th>Vol</th>
+                    <th>Δ</th>
+                    <th>Γ</th>
+                    <th>Θ</th>
+                    <th>Vega</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Rows injected by JS -->
+            </tbody>
+        </table>
+        <canvas id="oi-trend" height="120"></canvas>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/option_chain.js') }}"></script>
+{% endblock %}

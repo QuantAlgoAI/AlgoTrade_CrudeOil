@@ -1,0 +1,147 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block extra_css %}
+<!-- Additional dashboard-specific CSS can go here -->
+{% endblock %}
+
+{% block content %}
+<!-- BEGIN Dashboard Main Content (copied from index.html#main-dashboard) -->
+<div id="main-dashboard">
+    <div class="row dashboard-section">
+        <div class="col-md-3 col-lg-2">
+            <!-- Contract Info Cards -->
+            <div class="info-card mb-2">
+                <div class="info-label"><i class="fa-solid fa-circle-info"></i> Futures Contract</div>
+                <div><small><b>Symbol:</b> <span id="fut-symbol"></span></small></div>
+                <div><small><b>Expiry:</b> <span id="fut-expiry"></span></small></div>
+                <div><small><b>Lot Size:</b> <span id="fut-lotsize"></span></small></div>
+            </div>
+            <!-- CE Contract Info -->
+            <div class="info-card mb-2">
+                <div class="info-label"><i class="fa-solid fa-circle-info"></i> CE Contract</div>
+                <div><small><b>Symbol:</b> <span id="ce-symbol"></span></small></div>
+                <div><small><b>Strike:</b> <span id="ce-strike"></span></small></div>
+                <div><small><b>Expiry:</b> <span id="ce-expiry"></span></small></div>
+                <div><small><b>Lot Size:</b> <span id="ce-lotsize"></span></small></div>
+            </div>
+            <!-- CE Strategy Indicators -->
+            <div class="info-card mb-2">
+                <div class="info-label"><i class="fa-solid fa-microscope"></i> CE Strategy</div>
+                <table class="table table-dark table-sm mb-0">
+                    <tbody>
+                        <tr><td><small>Fast EMA</small></td><td><small id="ce-fast-ema">--</small></td></tr>
+                        <tr><td><small>Slow EMA</small></td><td><small id="ce-slow-ema">--</small></td></tr>
+                        <tr><td><small>RSI</small></td><td><small id="ce-rsi">--</small></td></tr>
+                        <tr><td><small>MACD</small></td><td><small id="ce-macd">--</small></td></tr>
+                        <tr><td><small>VWAP</small></td><td><small id="ce-vwap">--</small></td></tr>
+                        <tr><td><small>ATR</small></td><td><small id="ce-atr">--</small></td></tr>
+                        <tr><td><small>Regime</small></td><td><small id="ce-regime">--</small></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <!-- PE Contract Info -->
+            <div class="info-card mb-2">
+                <div class="info-label"><i class="fa-solid fa-circle-info"></i> PE Contract</div>
+                <div><small><b>Symbol:</b> <span id="pe-symbol"></span></small></div>
+                <div><small><b>Strike:</b> <span id="pe-strike"></span></small></div>
+                <div><small><b>Expiry:</b> <span id="pe-expiry"></span></small></div>
+                <div><small><b>Lot Size:</b> <span id="pe-lotsize"></span></small></div>
+            </div>
+            <!-- PE Strategy Indicators -->
+            <div class="info-card">
+                <div class="info-label"><i class="fa-solid fa-microscope"></i> PE Strategy</div>
+                <table class="table table-dark table-sm mb-0">
+                    <tbody>
+                        <tr><td><small>Fast EMA</small></td><td><small id="pe-fast-ema">--</small></td></tr>
+                        <tr><td><small>Slow EMA</small></td><td><small id="pe-slow-ema">--</small></td></tr>
+                        <tr><td><small>RSI</small></td><td><small id="pe-rsi">--</small></td></tr>
+                        <tr><td><small>MACD</small></td><td><small id="pe-macd">--</small></td></tr>
+                        <tr><td><small>VWAP</small></td><td><small id="pe-vwap">--</small></td></tr>
+                        <tr><td><small>ATR</small></td><td><small id="pe-atr">--</small></td></tr>
+                        <tr><td><small>Regime</small></td><td><small id="pe-regime">--</small></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Charts Section -->
+        <div class="col-md-9 col-lg-10">
+            <div class="row mb-3">
+                <div class="col">
+                    <div class="info-card">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <div class="d-flex align-items-center">
+                                <div class="info-label me-3"><i class="fa-solid fa-chart-line"></i> OHLC Charts</div>
+                                <div class="me-3" id="ltp-info"><b>LTP:</b> <span id="ltp-val">--</span></div>
+                                <div class="me-3" id="vol-info"><b>Volume:</b> <span id="vol-val">--</span></div>
+                                <div class="me-3" id="oi-info"><b>OI:</b> <span id="oi-val">--</span></div>
+                            </div>
+                            <div>
+                                <label for="ohlc-interval" class="form-label mb-0 me-2">Interval:</label>
+                                <select id="ohlc-interval" class="form-select form-select-sm d-inline-block" style="width:auto;">
+                                    <option value="1s">1 sec</option>
+                                    <option value="5s" selected>5 sec</option>
+                                    <option value="10s">10 sec</option>
+                                    <option value="30s">30 sec</option>
+                                    <option value="1min">1 min</option>
+                                    <option value="5min">5 min</option>
+                                    <option value="15min">15 min</option>
+                                    <option value="1h">1 hour</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <!-- ✅ Indicator Toggles -->
+                        <div class="mb-2">
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="show-fast-ema" checked>
+                                <span class="form-check-label">Fast EMA</span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="show-slow-ema" checked>
+                                <span class="form-check-label">Slow EMA</span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="show-vwap" checked>
+                                <span class="form-check-label">VWAP</span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="show-rsi" checked>
+                                <span class="form-check-label">RSI</span>
+                            </label>
+                            <label class="form-check form-check-inline">
+                                <input class="form-check-input" type="checkbox" id="show-macd" checked>
+                                <span class="form-check-label">MACD</span>
+                            </label>
+                        </div>
+                        
+                        <!-- Chart Tabs -->
+                        <div>
+                            <div id="tab-fut" class="tab active" onclick="showTab('fut')">Futures</div>
+                            <div id="tab-ce" class="tab" onclick="showTab('ce')">CE</div>
+                            <div id="tab-pe" class="tab" onclick="showTab('pe')">PE</div>
+                        </div>
+                        <!-- Chart Content -->
+                        <div id="content-fut" class="tab-content active">
+                            <div id="chart-fut" style="width: 100%; min-width: 1200px; margin: auto;"></div>
+                        </div>
+                        <div id="content-ce" class="tab-content">
+                            <div id="chart-ce" style="width: 100%; min-width: 1200px; margin: auto;"></div>
+                        </div>
+                        <div id="content-pe" class="tab-content">
+                            <div id="chart-pe" style="width: 100%; min-width: 1200px; margin: auto;"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.plot.ly/plotly-2.32.0.min.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

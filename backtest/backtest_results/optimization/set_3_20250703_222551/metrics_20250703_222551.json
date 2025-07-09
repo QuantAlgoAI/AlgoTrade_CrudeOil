@@ -1,0 +1,14 @@
+{
+    "total_return": 15017.63579999998,
+    "max_drawdown": -5.568,
+    "sharpe_ratio": 0.156051319983557,
+    "win_rate": 55.99826192095519,
+    "ce_metrics": {
+        "total_return": -103.5952000000001,
+        "win_rate": 12.121212121212121
+    },
+    "pe_metrics": {
+        "total_return": 30138.86679999996,
+        "win_rate": 99.87531172069825
+    }
+}

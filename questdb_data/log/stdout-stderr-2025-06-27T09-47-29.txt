@@ -1,0 +1,8 @@
+Reading log configuration from D:\Backup\CrudeOil002\production_ready\questdb_server\questdb-8.3.3-rt-windows-x86-64\bin\..\..\..\questdb_data\conf\log.conf
+2025-06-27T04:17:34.520452Z A http-min-server listening on 0.0.0.0:9003 [fd=8074538516696 backlog=64]
+SIGTERM received
+SIGTERM received
+QuestDB is shutting down...
+QuestDB is shutting down...
+QuestDB is shutdown.
+QuestDB is shutdown.

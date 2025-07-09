@@ -1,0 +1,59 @@
+# Web Framework
+flask
+flask-socketio
+python-socketio
+eventlet
+python-engineio
+gevent-websocket
+
+# Database
+sqlalchemy
+alembic
+
+# Data Processing
+pandas
+numpy
+scipy
+
+# API and HTTP
+requests
+urllib3
+
+# Notifications
+python-telegram-bot
+
+# Configuration
+python-dotenv
+
+# Testing (Development)
+pytest
+pytest-asyncio
+pytest-mock
+
+# Utilities
+pyotp
+schedule
+tqdm
+aiofiles
+
+# Plotting (for backtesting)
+matplotlib
+seaborn
+plotly
+
+# Machine Learning (Optional)
+scikit-learn
+
+# Development Tools
+black
+flake8
+mypy 
+
+aiofiles # For asynchronous file handling
+tqdm # For progress bars in scripts
+logzero # For logging
+pycryptodome # For encryption/decryption of sensitive data
+
+
+schedule # For scheduling tasks
+

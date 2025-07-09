@@ -1,0 +1,38 @@
+version: "3.9"
+services:
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    restart: unless-stopped
+
+  questdb:
+    image: questdb/questdb:latest
+    ports:
+      - "9000:9000"   # Web UI
+      - "8812:8812"   # Postgres wire protocol
+    restart: unless-stopped
+
+  dashboard:
+    build: .
+    container_name: algo-dashboard
+    ports:
+      - "5000:5000"
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      OC_REFRESH_SEC: 8
+    depends_on:
+      - redis
+      - questdb
+    restart: unless-stopped
+
+  worker:
+    build: .
+    container_name: option-chain-worker
+    command: ["python", "option_chain_worker.py"]
+    environment:
+      REDIS_URL: redis://redis:6379/0
+      OC_REFRESH_SEC: 8
+    depends_on:
+      - redis
+    restart: unless-stopped

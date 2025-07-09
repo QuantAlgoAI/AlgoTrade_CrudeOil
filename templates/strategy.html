@@ -1,0 +1,124 @@
+{% extends "base.html" %}
+
+{% block title %}Strategy{% endblock %}
+
+{% block content %}
+<!-- Strategy Page Content -->
+<div class="row">
+    <!-- Strategy Settings -->
+    <div class="col-md-4">
+        <div class="info-card mb-3">
+            <div class="info-label"><i class="fa-solid fa-sliders"></i> Strategy Parameters</div>
+            <form id="strategy-form">
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">Fast EMA Period</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="use-fast-ema" checked>
+                        </div>
+                    </div>
+                    <input type="number" class="form-control form-control-sm" id="fast-ema-period" value="12">
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">Slow EMA Period</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="use-slow-ema" checked>
+                        </div>
+                    </div>
+                    <input type="number" class="form-control form-control-sm" id="slow-ema-period" value="26">
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">RSI Period</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="use-rsi" checked>
+                        </div>
+                    </div>
+                    <input type="number" class="form-control form-control-sm" id="rsi-period" value="14">
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">VWAP Period</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="use-vwap" checked>
+                        </div>
+                    </div>
+                    <input type="number" class="form-control form-control-sm" id="vwap-period" value="20">
+                </div>
+                <div class="mb-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <label class="form-label mb-0">ATR Period</label>
+                        <div class="form-check form-switch">
+                            <input class="form-check-input" type="checkbox" id="use-atr" checked>
+                        </div>
+                    </div>
+                    <input type="number" class="form-control form-control-sm" id="atr-period" value="14">
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm w-100">Update Strategy</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Strategy Performance & Trades -->
+    <div class="col-md-8">
+        <div class="info-card mb-3">
+            <div class="info-label"><i class="fa-solid fa-chart-line"></i> Strategy Performance</div>
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="performance-card text-center p-2 mb-2">
+                        <div class="text-muted small">Net P&L</div>
+                        <div class="h5 mb-0 text-success" id="net-pnl">₹0.00</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="performance-card text-center p-2 mb-2">
+                        <div class="text-muted small">Win Rate</div>
+                        <div class="h5 mb-0" id="win-rate">0%</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="performance-card text-center p-2 mb-2">
+                        <div class="text-muted small">Total Trades</div>
+                        <div class="h5 mb-0" id="total-trades">0</div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="performance-card text-center p-2 mb-2">
+                        <div class="text-muted small">Drawdown</div>
+                        <div class="h5 mb-0 text-danger" id="max-drawdown">0%</div>
+                    </div>
+                </div>
+            </div>
+            <div id="performance-chart" style="height: 300px;"></div>
+        </div>
+
+        <div class="info-card">
+            <div class="info-label"><i class="fa-solid fa-list"></i> Strategy Trades</div>
+            <div class="table-responsive">
+                <table class="table table-dark table-hover table-sm">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Symbol</th>
+                            <th>Signal</th>
+                            <th>Entry</th>
+                            <th>Exit</th>
+                            <th>P&L</th>
+                        </tr>
+                    </thead>
+                    <tbody id="strategy-trades">
+                        <!-- Strategy trades will be populated here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<!-- Socket.IO -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.min.js"></script>
+<script src="{{ url_for('static', filename='js/strategy.js') }}"></script>
+{% endblock %}

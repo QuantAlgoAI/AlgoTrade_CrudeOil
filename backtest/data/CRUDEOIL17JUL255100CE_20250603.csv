@@ -1,0 +1,3 @@
+timestamp,open,high,low,close,volume,openInterest,changeinOpenInterest,symbol,strike,option_type
+2025-06-03 17:50:00+05:30,400.0,400.0,400.0,400.0,0,0,0,CRUDEOIL17JUL255100CE,5100.0,CE
+2025-06-03 20:24:00+05:30,414.7,414.7,414.7,414.7,1,0,0,CRUDEOIL17JUL255100CE,5100.0,CE

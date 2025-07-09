@@ -1,0 +1,11 @@
+Reading log configuration from D:\Backup\CrudeOil002\production_ready\questdb_data\conf\log.conf
+io.questdb.cairo.CairoException: [0] cannot lock table name registry file [path=D:\Backup\CrudeOil002\production_ready\questdb_data\db]
+	at io.questdb@8.3.3/io.questdb.std.ThreadLocal.get(ThreadLocal.java:46)
+	at io.questdb@8.3.3/io.questdb.cairo.CairoException.instance(CairoException.java:368)
+	at io.questdb@8.3.3/io.questdb.cairo.CairoException.critical(CairoException.java:73)
+	at io.questdb@8.3.3/io.questdb.cairo.TableNameRegistryRW.<init>(TableNameRegistryRW.java:38)
+	at io.questdb@8.3.3/io.questdb.cairo.CairoEngine.<init>(CairoEngine.java:220)
+	at io.questdb@8.3.3/io.questdb.Bootstrap.newCairoEngine(Bootstrap.java:387)
+	at io.questdb@8.3.3/io.questdb.ServerMain.<init>(ServerMain.java:94)
+	at io.questdb@8.3.3/io.questdb.ServerMain.<init>(ServerMain.java:88)
+	at io.questdb@8.3.3/io.questdb.ServerMain.main(ServerMain.java:182)
