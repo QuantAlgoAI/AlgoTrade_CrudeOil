@@ -9,30 +9,50 @@ on:
 jobs:
   build-and-push:
     runs-on: ubuntu-latest
-    env:
-      DOCKER_USER: ${{ secrets.DOCKER_USER }}
-      DOCKER_PASS: ${{ secrets.DOCKER_PASS }}
-    steps:
-      - uses: actions/checkout@v4
 
-      - name: Set up QEMU
+    steps:
+      - name: 📥 Checkout code
+        uses: actions/checkout@v4
+
+      - name: 🛠 Set up QEMU (for multi-arch)
         uses: docker/setup-qemu-action@v3
 
-      - name: Set up Docker Buildx
+      - name: 🛠 Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Log in to Docker Hub
+      - name: 🔐 Log in to Docker Hub
         uses: docker/login-action@v3
         with:
-          username: ${{ env.DOCKER_USER }}
-          password: ${{ env.DOCKER_PASS }}
+          username: ${{ secrets.DOCKER_USER }}
+          password: ${{ secrets.DOCKER_PASS }}
 
-      - name: Build and push multi-arch image
-        env:
-          DOCKER_USER: ${{ secrets.DOCKER_USER }}
+      - name: 🐳 Build and push multi-arch Docker image
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
-          tags: ${{ env.DOCKER_USER }}/algo-trade-dashboard:latest
+          tags: |
+            rjv1010/algo-trade-dashboard:latest
+            rjv1010/algo-trade-dashboard:${{ github.sha }}
           platforms: linux/amd64,linux/arm64
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+          provenance: false  # Optional: skips attestation metadata if you don’t need SBOM
+
+      - name: 🛡 Run Trivy vulnerability scan
+        uses: aquasecurity/trivy-action@0.32.0
+        with:
+          scan-type: image
+          image-ref: rjv1010/algo-trade-dashboard:latest
+          format: sarif
+          output: trivy-results.sarif
+          severity: CRITICAL,HIGH
+          exit-code: 0  # don’t fail the build on HIGH/CRITICAL (optional)
+
+      - name: 📤 Upload Trivy scan results to GitHub Security Dashboard
+        uses: github/codeql-action/upload-sarif@v2
+        with:
+          sarif_file: trivy-results.sarif
+
+      - name: 🧹 Cleanup Docker images (optional)
+        run: docker system prune -af

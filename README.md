@@ -1,5 +1,7 @@
 # Crude Oil Options Trading Bot v2.0
 
+![CI/CD](https://github.com/QuantAlgoAI/AlgoTrade_CrudeOil/actions/workflows/docker.yml/badge.svg)
+
 A comprehensive, production-ready automated trading system for Crude Oil options on Angel One (Angel Broking) platform. This version features a completely modernized, modular architecture with enhanced security, error handling, and monitoring capabilities.
 
 ## 🚀 What's New in v2.0
@@ -377,5 +379,5 @@ python deploy.py status
 # Emergency backup
 python deploy.py backup
 ```
-    
+
 **Happy Trading! 🚀📈** 

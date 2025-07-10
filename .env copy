@@ -4,28 +4,31 @@ PORT=5000
 DEBUG=True
 SECRET_KEY=generate_a_strong_secret_key_minimum_32_characters_long
 
-# --- Database (PostgreSQL on host) ---
+# "env": {
+#   "GITHUB_PERSONAL_ACCESS_TOKEN": "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"
+# }
+
+# --- Database (you already added) ---
 DB_USER=postgres
 DB_PASSWORD=postgres
-DB_HOST=host.docker.internal
+DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=quantalgo_db
 
-DATABASE_URL=postgresql://postgres:postgres@host.docker.internal:5432/quantalgo_db
-
-# --- QuestDB (PostgreSQL wire) ---
-QUESTDB_HOST=host.docker.internal
-QUESTDB_PORT=8812
-
-# --- Redis (on host) ---
-REDIS_HOST=host.docker.internal
-REDIS_PORT=6379
+# SQLAlchemy fallback used by mcx.py
+DATABASE_URL=sqlite:///trading_bot.db
 
 # --- Angel One credentials ---
 ANGEL_ONE_API_KEY=lB9qx6Rm
 ANGEL_ONE_CLIENT_CODE=R182159
 ANGEL_ONE_PASSWORD=1010
 ANGEL_ONE_TOTP_SECRET=NRXMU4SVMHCEW3H2KQ65IZKDGI
+
+
+
+# --- Redis ---
+REDIS_HOST=redis
+REDIS_PORT=6379
 
 # --- Notifications ---
 TELEGRAM_BOT_TOKEN=7836552815:AAHuWTVdtz_vYInRH_f9SDLJBc8MkHoog0o
@@ -38,7 +41,7 @@ GMAIL_PASS=puhn bkhk bnnq lebq
 WATCH_PATH=D:\Backup\CrudeOil_NSSM_New\backup_2025-07-02_12-31-24
 
 # --- Live Trading Flag ---
-DRY_RUN=false
+DRY_RUN='false'
 
-# --- Logging ---
+# Optional logging / misc
 LOG_LEVEL=INFO
