@@ -12,7 +12,8 @@ pandas~=2.2
 numpy~=1.26
 scipy~=1.12
 statsmodels~=0.14
-pandas-ta==0.3.14b0==0.3.14b0
+ta-lib>=0.4.0
+
 
 # --- DB / Cache ---
 sqlalchemy~=2.0
@@ -30,19 +31,7 @@ apscheduler~=3.10
 watchdog~=4.0
 logzero~=1.7
 
-# --- Web / API ---
-flask~=3.0
-flask-socketio~=5.3
-eventlet~=0.35
-python-telegram-bot~=20.8
-smartapi-python~=1.4
 
-# --- Data ---
-pandas~=2.2
-numpy~=1.26
-scipy~=1.12
-statsmodels~=0.14
-pandas-ta==0.3.14b0==0.3.14b0
 
 # --- DB / Cache ---
 sqlalchemy~=2.0
