@@ -12,7 +12,7 @@ RUN apt-get update -qq && apt-get install -y --no-install-recommends \
 # ---------- Python dependencies ----------
 WORKDIR /app
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install --no-cache-dir -r requirements.txt
+RUN pip install --upgrade pip && pip install --pre --no-cache-dir -r requirements.txt
 
 # ---------- Application layer ----------
 COPY . /app
