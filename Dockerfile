@@ -6,21 +6,20 @@
     # ---------- Install OS-level dependencies ----------
     RUN apt-get update -qq && apt-get install -y --no-install-recommends \
         build-essential gcc libpam0g libffi-dev libssl-dev curl \
-        && apt-get clean && rm -rf /var/lib/apt/lists/*
     
-    # ---------- Install Python packages ----------
-    WORKDIR /app
-    COPY requirements.txt .
+# ---------- Install Python packages ----------
+WORKDIR /app
+COPY requirements.txt .
     
-    # Lock TA-Lib to 0.6.3 explicitly
-    RUN pip install --upgrade pip && \
-        pip install ta-lib==0.6.3 && \
-        pip install -r requirements.txt
+RUN pip install --upgrade pip && \
+    pip install -r requirements.txt
     
-    # ---------- Copy app ----------
-    COPY . /app
+# ---------- Copy app ----------
+COPY . /app
     
-    # ---------- Env ----------
+# ---------- Env ----------
+ENV PYTHONUNBUFFERED=1
+EXPOSE 5000
     ENV PYTHONUNBUFFERED=1
     EXPOSE 5000
     
